@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "types": [
+      // load cypress global type
+      "cypress"
+    ],
+    "paths": {
+      "@page-entities/*": ["cypress/integration/automation-core-pages/page-entities/*"],
+      "@page-objects-models/*": ["cypress/integration/automation-core-pages/page-objects-models/*"],
+    }
+  },
+  "include": [
+    // process only spec files
+    "cypress/**/*.ts"
+  ]
+}

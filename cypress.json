@@ -1,0 +1,16 @@
+{
+  "projectId": "interviewzopacypress-xavier",
+    "testFiles": "**/*.feature",
+    "env":{
+      "zopa_portal_url": "https://www.zopa.com/",
+      "zopa_loans_url": "https://www.zopa.com/loans"
+    },
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reportDir": "cypress/report/mochawesome-report",
+      "overwrite": false,
+      "html": false,
+      "json": true,
+      "timestamp": "mmddyyyy_HHMMss"
+    }
+}
