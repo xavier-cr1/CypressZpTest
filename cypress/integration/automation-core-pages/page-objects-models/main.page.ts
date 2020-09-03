@@ -1,10 +1,15 @@
-export class MainPage {
+import { IMainPage } from "../page-contracts/imain.page";
 
-    public static visit(): void {
+
+import {injectable} from 'inversify'
+
+@injectable()
+export class MainPage implements IMainPage {
+    public visitLanding(): void {
       cy.visit(Cypress.env('zopa_portal_url'));
     }
 
-    public static getBanner(): Cypress.Chainable {
+    public getBanner(): Cypress.Chainable<any> {
       return cy.get('.Align__Alignment-sc-132butt-0').children();
     }
 
