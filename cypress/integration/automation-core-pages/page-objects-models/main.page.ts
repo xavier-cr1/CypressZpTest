@@ -5,7 +5,7 @@ export class MainPage {
     }
 
     public static getBanner(): Cypress.Chainable {
-      return cy.get('.Hero__Caption-sc-1uswyz7-1');
+      return cy.get('.Align__Alignment-sc-132butt-0').children();
     }
 
     public static goToLoans(): void {

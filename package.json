@@ -20,7 +20,7 @@
     "@types/node": "^13.1.8",
     "awesome-typescript-loader": "^5.2.1",
     "cucumber": "^6.0.5",
-    "cypress": "^3.8.2",
+    "cypress": "^5.1.0",
     "cypress-cucumber-preprocessor": "^2.0.1",
     "libphonenumber-js": "^1.7.31",
     "mocha": "^7.0.0",
