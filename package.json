@@ -34,6 +34,7 @@
     "nonGlobalStepDefinitions": true
   },
   "dependencies": {
+    "cucumber-tsflow": "^3.4.1",
     "email-validator": "^2.0.4",
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13"
