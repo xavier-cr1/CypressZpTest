@@ -1,0 +1,43 @@
+trigger:
+- release/*
+ 
+jobs:
+  - job: PartnerPortal_e2e_Tests
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      parallel: 1
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+        displayName: 'Install Node.js'
+ 
+      # Install Node dependencies
+      - script: npm ci
+        displayName: 'Install NPM dependencies'
+     
+      # Verify Cypress
+      - script: |
+          npx cypress verify
+        displayName: 'Cypress verify'
+ 
+      # Run tests
+      - script: |
+          npm run cypress:$(env)
+        displayName: 'Run Cypress Tests'
+        env:
+          CYPRESS_JWT: $(JWT_RELIANT)
+ 
+      # Publish results report
+      - task: PublishTestResults@2
+        displayName: 'Publish Test Results'
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/reports/mocha/results-*.xml'
+          mergeTestResults: true
+        condition: succeededOrFailed()
+ 
+      - task: PostBuildCleanup@3
+        displayName: 'Clean Agent Directories'
+        condition: always()
